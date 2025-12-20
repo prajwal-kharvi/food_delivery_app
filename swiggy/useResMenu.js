@@ -1,0 +1,23 @@
+import {MenuApi} from "./ItemList";
+import {useEffect, useState} from "react";
+
+
+const useResMenu=(resid)=> {
+    const [resInfo, setresInfo] = useState(null)
+
+    useEffect(()=> {fetchMenu()},[])
+
+
+    const fetchMenu = async () => {
+        const dataMenu = await fetch(MenuApi.replace("{resid}", resid));
+        console.log(dataMenu)
+        const menu = await dataMenu.json()
+        const ResData = menu.data.cards.slice(2)
+        setresInfo(ResData)
+
+
+    }
+    return resInfo;
+}
+
+export default useResMenu;
