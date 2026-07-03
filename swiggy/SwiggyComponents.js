@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {BImageUrl} from "./ItemList";
 import Shimmer2 from "./Shimmer2";
 import {Link} from "react-router";
@@ -21,14 +20,14 @@ const SwiggyComponents=({title,text,image_url})=>{
 
 export const SwiggyCard=({DataCard})=>{
     const ApiResult=DataCard.map((item,index)=>{
-        let itemSwiggy=item?.card?.card?.info;
+        let itemSwiggy=item?.info;
         return(
-         <Link  key={itemSwiggy?.id} to={"/restaurants/"+itemSwiggy?.id}>  <SwiggyComponents  title={itemSwiggy?.name} text={"area: " +
-             itemSwiggy?.areaName +
-             "\n" +
-             "rating: " +
-             itemSwiggy?.avgRatingString
-         } image_url={itemSwiggy?.cloudinaryImageId}/></Link>
+            <Link  key={itemSwiggy?.id} to={"/restaurants/"+itemSwiggy?.id}>  <SwiggyComponents  title={itemSwiggy?.name} text={"area: " +
+                itemSwiggy?.areaName +
+                "\n" +
+                "rating: " +
+                itemSwiggy?.avgRatingString
+            } image_url={itemSwiggy?.cloudinaryImageId}/></Link>
 
 
         )
@@ -42,4 +41,4 @@ export const SwiggyCard=({DataCard})=>{
         return (<div className="row row-cols-3 g-4">{ApiResult}</div>
         )
     }
-    }
+}

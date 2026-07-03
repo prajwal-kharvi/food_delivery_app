@@ -9,10 +9,9 @@ const useResMenu=(resid)=> {
 
 
     const fetchMenu = async () => {
-        const dataMenu = await fetch(MenuApi.replace("{resid}", resid));
-        console.log(dataMenu)
+        const dataMenu = await fetch(MenuApi+resid);
         const menu = await dataMenu.json()
-        const ResData = menu.data.cards.slice(2)
+        const ResData = menu.data.cards
         setresInfo(ResData)
 
 

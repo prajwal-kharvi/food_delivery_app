@@ -1,6 +1,5 @@
-import {useState, useEffect, useCallback} from "react";
+import {useState, useEffect} from "react";
 import {SwiggyApiCall} from "./ItemList";
-import {data} from "react-router";
 import {SwiggyCard} from "./SwiggyComponents";
 import useOnlineStatus from "./useOnlineStatus";
 
@@ -15,9 +14,9 @@ const HomePage=()=>{
     const MakeApiCall=async(url)=>{
         const response = await fetch(url);
         const Data = await response.json();
-        // console.log(Data);
-        const filterSwiggy=Data.data.cards.slice(3)
-        // console.log(filterSwiggy)
+        const filterSwiggy= Data?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+        console.log(filterSwiggy)
         setSwiggyData(filterSwiggy);
 
     }
