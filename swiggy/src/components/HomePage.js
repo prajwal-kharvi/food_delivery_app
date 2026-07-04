@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
-import {SwiggyApiCall} from "./ItemList";
+import {SwiggyApiCall} from "../utils/ItemList";
 import {SwiggyCard} from "./SwiggyComponents";
-import useOnlineStatus from "./useOnlineStatus";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 
 
@@ -15,8 +15,6 @@ const HomePage=()=>{
         const response = await fetch(url);
         const Data = await response.json();
         const filterSwiggy= Data?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
-        console.log(filterSwiggy)
         setSwiggyData(filterSwiggy);
 
     }
@@ -24,6 +22,7 @@ const HomePage=()=>{
     const onlineStatus =useOnlineStatus();
 
     if(onlineStatus===false)return <h1>Internet Connection Error</h1>
+    console.log(SwiggyData)
     return (
         <div>
             <SwiggyCard key={1} DataCard={SwiggyData}/>

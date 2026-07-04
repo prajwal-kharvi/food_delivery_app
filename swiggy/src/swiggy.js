@@ -1,15 +1,14 @@
 import React ,{lazy,Suspense}from "react";
-import Reactdom from "react-dom";
-import Navbar2 from "./Navbar2";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import HomePage from "./HomePage";
+import Reactdom from "react-dom/client";
+import "./swiggy.css"
+import Navbar2 from "./components/Navbar2";
+import HomePage from "./components/HomePage";
 import {createBrowserRouter,RouterProvider,Outlet} from "react-router";
-import SwiggyError from "./SwiggyError";
-import SwiggyContact from "./SwiggyContact";
-import SwiggyRestaurantMenu from "./SwiggyRestaurantMenu";
+import SwiggyError from "./Error/SwiggyError";
+import SwiggyContact from "./Contact/SwiggyContact";
+import SwiggyRestaurantMenu from "./components/SwiggyRestaurantMenu";
 
-const SwiggyAbout= lazy(() => import("./SwiggyAbout"));
+const SwiggyAbout= lazy(() => import("./About/SwiggyAbout"));
 
 
 const AppLayOut=()=>{
