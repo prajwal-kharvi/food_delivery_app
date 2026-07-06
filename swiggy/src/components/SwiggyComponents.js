@@ -1,6 +1,7 @@
 import {BImageUrl} from "../utils/ItemList";
 import Shimmer2 from "../Shimmer/Shimmer2";
 import {Link} from "react-router";
+import noImage from "../assets/noImage.png"
 
 
 const SwiggyComponents=({title,text,image_url})=>{
@@ -8,8 +9,11 @@ const SwiggyComponents=({title,text,image_url})=>{
         <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
             <img
                 className="w-full h-52 object-cover"
-                src={BImageUrl + image_url}
+                src={image_url ? BImageUrl + image_url : noImage}
                 alt="Restaurant"
+                onError={(e) => {
+                    e.target.src = noImage;
+                }}
             />
 
             <div className="p-4">

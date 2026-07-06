@@ -22,7 +22,6 @@ const HomePage=()=>{
     const onlineStatus =useOnlineStatus();
 
     if(onlineStatus===false)return <h1>Internet Connection Error</h1>
-    console.log(SwiggyData)
     return (
         <div>
             <SwiggyCard key={1} DataCard={SwiggyData}/>
